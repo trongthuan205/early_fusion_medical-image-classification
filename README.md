@@ -1,5 +1,5 @@
 <div align="center">
-<img src="resources/mmcls-logo.png" width="600"/>
+<img src="resources/framework.PNG" width="600"/>
 </div>
 
 ## Train Individual Deep Learning Model (Deep Doctor)

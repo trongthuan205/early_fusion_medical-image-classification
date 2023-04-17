@@ -114,9 +114,9 @@ test_features = fuse_features(lst_feat_test)
 np.save('test_fet_t2tvit_ccii.npy', features_train_t2tvit)
 
 train_labels = get_labels("../data/Clean-CC-CCII/train.txt")
-np.save('train_labels_ccii.npy',train_labels)
+np.save("train_labels_ccii.npy",train_labels)
 test_labels = get_labels("../data/Clean-CC-CCII/test.txt")
-np.save('test_labels_ccii.npy',test_labels)
+np.save("test_labels_ccii.npy",test_labels)
 
 
 

@@ -37,14 +37,32 @@ The model weight is automatically saved according to the path specified in the "
 CUDA_VISIBLE_DEVICES=0,1 PORT=29501 bash ./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} 2 --metrics accuracy --metric-options topk=1
 ```
 
-### Early Fusion
+## Early Fusion
+### Extract Feature
+Please update the path to the feature file and dataset in the respective configuration files.
+
+```shell
+python tools/extract_feats.py
+```
+
+### Train
+
+```shell
+python tools/train_early_fusion.py
+```
+
+### Testing
+
+```shell
+python tools/test_early_fusion.py
+```
+
 
 ## Acknowledgement
 
-MMClassification is an open source project that is contributed by researchers and engineers from various colleges and companies. We appreciate all the contributors who implement their methods or add new features, as well as users who give valuable feedbacks.
-We wish that the toolbox and benchmark could serve the growing research community by providing a flexible toolkit to reimplement existing methods and develop their own new classifiers.
+MMClassification is a collaborative open-source project, which has been contributed to by researchers and engineers from diverse academic institutions and corporate entities. We extend our appreciation to all those who have contributed by implementing their methods or incorporating new features. We also acknowledge the valuable feedback provided by our users.
 
-## Citation
+<!-- ## Citation
 
 If you find this project useful in your research, please consider cite:
 
@@ -55,5 +73,5 @@ If you find this project useful in your research, please consider cite:
     howpublished = {\url{https://github.com/open-mmlab/mmclassification}},
     year={2020}
 }
-```
+``` -->
 

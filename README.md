@@ -2,20 +2,8 @@
 <img src="resources/mmcls-logo.png" width="600"/>
 </div>
 
-## Introduction
-
-English | [简体中文](/README_zh-CN.md)
-
-MMClassification is an open source image classification toolbox based on PyTorch. It is
-a part of the [OpenMMLab](https://openmmlab.com/) project.
-
-The master branch works with **PyTorch 1.5+**.
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/9102141/87268895-3e0d0780-c4fe-11ea-849e-6140b7e0d4de.gif" width="70%"/>
-</div>
-
-## Installation
+## Train Individual Deep Learning Model (Deep Doctor)
+### Installation MMClassification
 
 Below are quick steps for installation:
 
@@ -28,11 +16,28 @@ git clone https://github.com/open-mmlab/mmclassification.git
 cd mmclassification
 pip3 install -e .
 ```
+
 Colab tutorials are also provided:
 
 - Learn about MMClassification **Python API**: [Preview the notebook](https://github.com/open-mmlab/mmclassification/blob/master/docs/en/tutorials/MMClassification_python.ipynb) or directly [run on Colab](https://colab.research.google.com/github/open-mmlab/mmclassification/blob/master/docs/en/tutorials/MMClassification_python.ipynb).
 - Learn about MMClassification **CLI tools**: [Preview the notebook](https://github.com/open-mmlab/mmclassification/blob/master/docs/en/tutorials/MMClassification_tools.ipynb) or directly [run on Colab](https://colab.research.google.com/github/open-mmlab/mmclassification/blob/master/docs/en/tutorials/MMClassification_tools.ipynb).
 
+### Training
+
+The configurations for DenseNet-201 and T2T-ViT models, as well as the pre-trained ChestXray and Clean-CC-CCII models, are located in the "configs/" directory, "ckpt_chestxray/", and "ckpt_ccii/" directories, respectively. In order to train, it is advised that the path to the dataset and class file be adjusted in the configuration files. It is worth noting that the training was conducted on two GPUs.
+
+```shell
+CUDA_VISIBLE_DEVICES=0,1 PORT=29501 bash ./tools/dist_train.sh ${CONFIG_FILE} 2
+```
+
+### Testing
+The model weight is automatically saved according to the path specified in the "work_dir" parameter of the configuration file.
+
+```shell
+CUDA_VISIBLE_DEVICES=0,1 PORT=29501 bash ./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} 2 --metrics accuracy --metric-options topk=1
+```
+
+### Early Fusion
 
 ## Acknowledgement
 

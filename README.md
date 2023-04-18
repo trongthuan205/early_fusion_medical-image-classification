@@ -37,7 +37,7 @@ The model weight is automatically saved according to the path specified in the "
 CUDA_VISIBLE_DEVICES=0,1 PORT=29501 bash ./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} 2 --metrics accuracy --metric-options topk=1
 ```
 
-## Early Fusion
+## Early Fusion (Deep Consultation)
 ### Extract Feature
 Please update the path to the feature file and dataset in the respective configuration files.
 
